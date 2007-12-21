@@ -12,6 +12,7 @@ Group:		Development/Perl
 Source0:	http://search.cpan.org/CPAN/authors/id/A/AR/ARANDAL/%{module}-%{version}.tar.bz2
 Url:		http://search.cpan.org/dist/%{module}
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	perl-devel
 BuildRequires:  perl-Pod-Simple
 BuildRequires:  perl-HTML-Parser

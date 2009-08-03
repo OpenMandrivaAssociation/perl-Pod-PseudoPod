@@ -1,21 +1,20 @@
-%define module	Pod-PseudoPod
-%define name	perl-%{module}
-%define version 0.15
-%define	release	%mkrel 1
+%define upstream_name	 Pod-PseudoPod
+%define upstream_version 0.15
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	A framework for parsing O'Reilly's PseudoPod
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source0:	http://search.cpan.org/CPAN/authors/id/A/AR/ARANDAL/%{module}-%{version}.tar.bz2
-Url:		http://search.cpan.org/dist/%{module}
-BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://search.cpan.org/CPAN/authors/id/A/AR/ARANDAL/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires:  perl-Pod-Simple
 BuildRequires:  perl-HTML-Parser
+BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 PseudoPod is an extended set of Pod tags used by O'Reilly and Associates
@@ -24,7 +23,7 @@ options you need to mark up files for publishing production. PseudoPod adds a
 few extra tags for footnotes, tables, sidebars, etc.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -47,4 +46,3 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/Pod/PseudoPod/*
 %{_mandir}/*/*
 %{_bindir}/*
-

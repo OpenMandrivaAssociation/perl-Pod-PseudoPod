@@ -1,15 +1,13 @@
 %define upstream_name	 Pod-PseudoPod
-%define upstream_version 0.19
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	0.19
+Release:	2
 
 Summary:	A framework for parsing O'Reilly's PseudoPod
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Pod-PseudoPod
-Source0:	https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/Pod-PseudoPod-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/Pod-PseudoPod-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -25,7 +23,7 @@ options you need to mark up files for publishing production. PseudoPod adds a
 few extra tags for footnotes, tables, sidebars, etc.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -52,9 +50,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Tue Aug 04 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 0.150.0-2mdv2010.0
 + Revision: 408772
 - force rebuild
-- rebuild using %%perl_convert_version
-
-* Thu Jun 18 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.15-1mdv2010.0
+- rebuild using %0.19 Thu Jun 18 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.15-1mdv2010.0
 + Revision: 387017
 - update to new version 0.15
 
